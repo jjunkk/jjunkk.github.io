@@ -1,0 +1,20 @@
+.hidden {
+  display: none;
+}
+
+body {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
+  color: white;
+}
+
+#clock {
+  font-size: 150px;
+  color: whitesmoke;
+}
+
+#greeting {
+  font-size: 70px;
+  color: rgb(206, 175, 108);
+}
