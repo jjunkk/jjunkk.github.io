@@ -14,8 +14,12 @@ function onLoginSubmit(event) {
 }
 
 function paintGreetings(username) {
+    const logoutBtn = document.createElement("button");
     greeting.innerText = `Hello, ${username}!`;
+    logoutBtn.innerText = `Logout`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    logoutBtn.addEventListener("click", deleteBtn);
+    greeting.appendChild(logoutBtn);
 }
 
 const savedUserName = localStorage.getItem(USERNAME_KEY);
@@ -27,18 +31,14 @@ if (savedUserName === null) {
     paintGreetings(savedUserName);
 }
 
-
-const logout = document.getElementById('logout');
-
-function handlerLogout() {
+function deleteBtn() {
     if (confirm('Do you want to logout?')){
-        localStorage.clear();
-        location.reload();
+        loginForm.classList.remove(HIDDEN_CLASSNAME);
+        greeting.classList.add(HIDDEN_CLASSNAME);
+        localStorage.removeItem(USERNAME_KEY);
+        loginInput.value = "";
     } else {
     }
 }
-
-logout.addEventListener('click', handlerLogout);
-
 // logout.classlist.remove(HIDDEN_CLASSNAME);
 // logout.classlist.add(HIDDEN_CLASSNAME);
